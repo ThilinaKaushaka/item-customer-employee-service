@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.icet</groupId>
-    <artifactId>optical-shop-back-end</artifactId>
+    <artifactId>item-customer-employee-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
