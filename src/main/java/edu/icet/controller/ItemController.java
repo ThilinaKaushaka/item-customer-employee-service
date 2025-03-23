@@ -50,7 +50,10 @@ public class ItemController {
         return itemService.searchItem(id);
     }
 
-
+    @PutMapping("/update")
+    void updateItem(@RequestBody ItemDtoSave itemDtoSave){
+        itemService.updateItem(itemDtoSave);
+    }
 
     @GetMapping("/get-item-category")
     ItemCategory[] getItemCategory(){

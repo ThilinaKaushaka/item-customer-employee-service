@@ -97,61 +97,61 @@ public class ItemServiceImpl implements ItemService {
 
     private void saveLens(ItemDtoSave itemDtoSave){
         LensEntity lens=mapper.map(itemDtoSave.getItemObject(), LensEntity.class);
-        lens.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        lens.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         lensDao.save(lens);
     }
 
     private void saveFrame(ItemDtoSave itemDtoSave){
         FrameEntity frame=mapper.map(itemDtoSave.getItemObject(), FrameEntity.class);
-        frame.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        frame.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         frameDao.save(frame);
     }
 
     private void saveContactLens(ItemDtoSave itemDtoSave){
         ContactLensEntity contactLens=mapper.map(itemDtoSave.getItemObject(), ContactLensEntity.class);
-        contactLens.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        contactLens.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         contactLensDao.save(contactLens);
     }
 
     private void saveContactLiquid(ItemDtoSave itemDtoSave){
         ContactLiquidEntity contactLiquid=mapper.map(itemDtoSave.getItemObject(), ContactLiquidEntity.class);
-        contactLiquid.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        contactLiquid.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         contactLiquidDao.save(contactLiquid);
     }
 
     private void saveLensCleaner(ItemDtoSave itemDtoSave){
         LensCleanerEntity lensCleaner=mapper.map(itemDtoSave.getItemObject(), LensCleanerEntity.class);
-        lensCleaner.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        lensCleaner.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         lensCleanerDao.save(lensCleaner);
     }
 
     private void saveLensCloth(ItemDtoSave itemDtoSave){
         LensClothEntity lensCloth=mapper.map(itemDtoSave.getItemObject(), LensClothEntity.class);
-        lensCloth.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        lensCloth.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         lensClothDao.save(lensCloth);
     }
 
     private void saveBox(ItemDtoSave itemDtoSave){
         BoxEntity box=mapper.map(itemDtoSave.getItemObject(), BoxEntity.class);
-        box.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        box.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         boxDao.save(box);
     }
 
     private void saveNail(ItemDtoSave itemDtoSave){
         NailEntity nail=mapper.map(itemDtoSave.getItemObject(), NailEntity.class);
-        nail.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        nail.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         nailDao.save(nail);
     }
 
     private void saveNosePad(ItemDtoSave itemDtoSave){
         NosePadEntity nosePad=mapper.map(itemDtoSave.getItemObject(), NosePadEntity.class);
-        nosePad.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        nosePad.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         nosePadDao.save(nosePad);
     }
 
     private void saveChain(ItemDtoSave itemDtoSave){
         ChainEntity chain=mapper.map(itemDtoSave.getItemObject(), ChainEntity.class );
-        chain.setItemEntity(ItemEntity.builder().id(itemDao.findLastId()).build());
+        chain.setItemEntity(ItemEntity.builder().id(itemDtoSave.getId()==null?itemDao.findLastId():itemDtoSave.getId()).build());
         chainDao.save(chain);
 
     }
@@ -173,6 +173,11 @@ public class ItemServiceImpl implements ItemService {
             case "NP" -> searchByNosePadId(Integer.parseInt(array[1]));
             default -> null;
         };
+    }
+
+    @Override
+    public void updateItem(ItemDtoSave itemDtoSave) {
+        addItem(itemDtoSave);
     }
 
     private ItemDtoView searchByNosePadId(Integer nosePadId) {

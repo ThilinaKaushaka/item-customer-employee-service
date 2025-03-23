@@ -34,6 +34,7 @@ import edu.icet.util.item.nose_pad.NosePadShape;
 public interface ItemService extends SuperService {
     void addItem(ItemDtoSave itemDtoSave);
     ItemDtoView searchItem(String search);
+    void updateItem(ItemDtoSave itemDtoSave);
 
     ItemCategory [] getItemCategory();
 
