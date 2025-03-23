@@ -1,7 +1,8 @@
-package edu.icet.model.entity.item.contact_liquid;
+package edu.icet.model.entity.item.box;
 
 import edu.icet.model.entity.item.ItemEntity;
-import edu.icet.util.item.contact_liquid.SolutionType;
+import edu.icet.util.item.box.BoxMaterial;
+import edu.icet.util.item.box.BoxSize;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,8 +12,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "contactLiquid")
-public class ContactLiquidEntity {
+@Table(name = "box")
+public class BoxEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -21,9 +22,11 @@ public class ContactLiquidEntity {
     @JoinColumn(name = "item_id",referencedColumnName = "id",unique = true)
     private ItemEntity itemEntity;
 
-    private Integer volume;
-    private Boolean preservatives;
-
     @Enumerated(EnumType.STRING)
-    private SolutionType type;
+    private BoxMaterial material;
+    @Enumerated(EnumType.STRING)
+    private BoxSize size;
+
+    private Boolean isLockable;
+    private Boolean isWaterProof;
 }

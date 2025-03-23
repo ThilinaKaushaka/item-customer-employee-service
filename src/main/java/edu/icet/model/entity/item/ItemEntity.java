@@ -1,12 +1,9 @@
 package edu.icet.model.entity.item;
 
-import edu.icet.model.entity.item.lens.LensEntity;
 import edu.icet.util.item.ItemCategory;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -33,4 +30,6 @@ public class ItemEntity{
     @Column(name = "created_at",nullable = false,updatable = false)
     @CreationTimestamp
     private java.sql.Timestamp createdAt;
+
+    private Boolean isDisable;
 }

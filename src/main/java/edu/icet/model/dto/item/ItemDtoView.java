@@ -4,11 +4,11 @@ import edu.icet.util.item.ItemCategory;
 import lombok.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@AllArgsConstructor
 @ToString
-public class ItemDtoSave{
+@Builder
+public class ItemDtoView {
     private Integer id;
     private String name;
     private ItemCategory category;

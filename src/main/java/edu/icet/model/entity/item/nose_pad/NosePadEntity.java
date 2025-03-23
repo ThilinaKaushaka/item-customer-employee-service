@@ -1,21 +1,20 @@
-package edu.icet.model.entity.item.lens;
+package edu.icet.model.entity.item.nose_pad;
 
 import edu.icet.model.entity.item.ItemEntity;
-import edu.icet.util.item.lens.LensCoating;
-import edu.icet.util.item.lens.LensMaterial;
-import edu.icet.util.item.lens.LensType;
+import edu.icet.util.item.nose_pad.NosePadMaterial;
+import edu.icet.util.item.nose_pad.NosePadMountType;
+import edu.icet.util.item.nose_pad.NosePadShape;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Builder
 @Entity
-@Table(name = "lens")
-public class LensEntity{
-
+@Table(name = "nosePad")
+public class NosePadEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,15 +22,10 @@ public class LensEntity{
     @OneToOne
     @JoinColumn(name = "item_id",referencedColumnName = "id",unique = true)
     private ItemEntity itemEntity;
-
     @Enumerated(EnumType.STRING)
-    private LensType type;
+    private NosePadMaterial material;
     @Enumerated(EnumType.STRING)
-    private LensMaterial material;
+    private NosePadMountType mountType;
     @Enumerated(EnumType.STRING)
-    private LensCoating coating;
-
-    private Double power;
-    private Double cylinder;
-    private Integer axis;
+    private NosePadShape shape;
 }

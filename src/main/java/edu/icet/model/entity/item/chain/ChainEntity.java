@@ -1,21 +1,20 @@
-package edu.icet.model.entity.item.lens;
+package edu.icet.model.entity.item.chain;
 
 import edu.icet.model.entity.item.ItemEntity;
-import edu.icet.util.item.lens.LensCoating;
-import edu.icet.util.item.lens.LensMaterial;
-import edu.icet.util.item.lens.LensType;
+import edu.icet.util.item.chain.ChainClaspType;
+import edu.icet.util.item.chain.ChainMaterial;
+import edu.icet.util.item.chain.ChainStyle;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Builder
 @Entity
-@Table(name = "lens")
-public class LensEntity{
-
+@Table(name = "chain")
+public class ChainEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,13 +24,11 @@ public class LensEntity{
     private ItemEntity itemEntity;
 
     @Enumerated(EnumType.STRING)
-    private LensType type;
+    private ChainMaterial material;
     @Enumerated(EnumType.STRING)
-    private LensMaterial material;
+    private ChainStyle style;
     @Enumerated(EnumType.STRING)
-    private LensCoating coating;
+    private ChainClaspType claspType;
 
-    private Double power;
-    private Double cylinder;
-    private Integer axis;
+    private Double length;
 }

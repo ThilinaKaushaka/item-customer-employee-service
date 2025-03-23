@@ -11,13 +11,14 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "lens_cleaner")
+@Table(name = "lensCleaner")
 public class LensCleanerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "item_id",referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "item_id",referencedColumnName = "id",unique = true)
     private ItemEntity itemEntity;
 
     private Double volume;

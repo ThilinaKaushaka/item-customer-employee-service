@@ -6,9 +6,9 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @ToString
-public class ItemDtoSave{
+@Builder
+public class ItemDto {
     private Integer id;
     private String name;
     private ItemCategory category;
@@ -17,5 +17,4 @@ public class ItemDtoSave{
     private Double price;
     private String description;
     private Boolean isDisable;
-    private Object itemObject;
 }

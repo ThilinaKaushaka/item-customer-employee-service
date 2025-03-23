@@ -13,7 +13,7 @@ import lombok.*;
 @ToString
 @Builder
 @Entity
-@Table(name = "contact_lens")
+@Table(name = "contactLens")
 public class ContactLensEntity {
 
     @Id
@@ -21,7 +21,7 @@ public class ContactLensEntity {
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "item_id",referencedColumnName = "id")
+    @JoinColumn(name = "item_id",referencedColumnName = "id",unique = true)
     private ItemEntity itemEntity;
 
     @Enumerated(EnumType.STRING)

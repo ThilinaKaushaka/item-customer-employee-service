@@ -1,9 +1,8 @@
-package edu.icet.model.entity.item.lens;
+package edu.icet.model.entity.item.lens_cloth;
 
 import edu.icet.model.entity.item.ItemEntity;
-import edu.icet.util.item.lens.LensCoating;
-import edu.icet.util.item.lens.LensMaterial;
-import edu.icet.util.item.lens.LensType;
+import edu.icet.util.item.lens_cloth.LensClothMaterial;
+import edu.icet.util.item.lens_cloth.LensClothSize;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,9 +12,8 @@ import lombok.*;
 @ToString
 @Builder
 @Entity
-@Table(name = "lens")
-public class LensEntity{
-
+@Table(name = "lensCloth")
+public class LensClothEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -25,13 +23,10 @@ public class LensEntity{
     private ItemEntity itemEntity;
 
     @Enumerated(EnumType.STRING)
-    private LensType type;
+    private LensClothMaterial material;
     @Enumerated(EnumType.STRING)
-    private LensMaterial material;
-    @Enumerated(EnumType.STRING)
-    private LensCoating coating;
+    private LensClothSize size;
 
-    private Double power;
-    private Double cylinder;
-    private Integer axis;
+    private Boolean isAntiStatic;
+    private Boolean isPrinted;
 }

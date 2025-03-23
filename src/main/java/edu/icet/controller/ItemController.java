@@ -1,8 +1,14 @@
 package edu.icet.controller;
 
 import edu.icet.model.dto.item.ItemDtoSave;
+import edu.icet.model.dto.item.ItemDtoView;
 import edu.icet.service.custom.ItemService;
 import edu.icet.util.item.ItemCategory;
+import edu.icet.util.item.box.BoxMaterial;
+import edu.icet.util.item.box.BoxSize;
+import edu.icet.util.item.chain.ChainClaspType;
+import edu.icet.util.item.chain.ChainMaterial;
+import edu.icet.util.item.chain.ChainStyle;
 import edu.icet.util.item.contact_lens.ContactLensDuration;
 import edu.icet.util.item.contact_lens.ContactLensMaterial;
 import edu.icet.util.item.contact_lens.ContactLensType;
@@ -15,7 +21,14 @@ import edu.icet.util.item.lens.LensFinished;
 import edu.icet.util.item.lens.LensMaterial;
 import edu.icet.util.item.lens.LensType;
 import edu.icet.util.item.lens_cleaner.CleanerType;
+import edu.icet.util.item.lens_cloth.LensClothMaterial;
+import edu.icet.util.item.lens_cloth.LensClothSize;
+import edu.icet.util.item.nail.NailMaterial;
+import edu.icet.util.item.nail.NailThreadType;
+import edu.icet.util.item.nail.NailUsage;
 import edu.icet.util.item.nose_pad.NosePadMaterial;
+import edu.icet.util.item.nose_pad.NosePadMountType;
+import edu.icet.util.item.nose_pad.NosePadShape;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +45,10 @@ public class ItemController {
         itemService.addItem(itemDtoSave);
     }
 
-
+    @GetMapping("/search-by-id")
+    ItemDtoView searchItem(@RequestParam(name = "id")String id){
+        return itemService.searchItem(id);
+    }
 
 
 
@@ -103,14 +119,89 @@ public class ItemController {
         return itemService.getNosePadMaterial();
     }
 
+    @GetMapping("/get-nose-pad-mount-type")
+    NosePadMountType[] getNosePadMountType(){
+        return itemService.getNosePadMountType();
+    }
+
+    @GetMapping("/get-nose-pad-shape")
+    NosePadShape[] getNosePadShape(){
+        return itemService.getNosePadShape();
+    }
+
+
+
     @GetMapping("/get-solution-type")
     SolutionType[] getSolutionType(){
         return itemService.getSolutionType();
     }
 
+
     @GetMapping("/get-cleaner-type")
     CleanerType [] getLensCleanerType(){
         return itemService.getCleanerType();
     }
+
+
+
+    @GetMapping("/get-lens-cloth-material")
+    LensClothMaterial[] getLensClothMaterial(){
+        return itemService.getLensClothMaterial();
+    }
+
+    @GetMapping("/get-lens-cloth-size")
+    LensClothSize[] getLensClothSize(){
+        return itemService.getLensClothSize();
+    }
+
+
+
+    @GetMapping("/get-box-material")
+    BoxMaterial[] getBoxMaterial(){
+        return itemService.getBoxMaterial();
+    }
+
+    @GetMapping("/get-box-size")
+    BoxSize[] getBoxSize(){
+        return itemService.getBoxSize();
+    }
+
+
+
+    @GetMapping("/get-nail-material")
+    NailMaterial [] getNailMaterial(){
+        return itemService.getNailMaterial();
+    }
+
+    @GetMapping("/get-nail-thread-type")
+    NailThreadType[] getNailThreadType(){
+        return itemService.getNailThreadType();
+    }
+
+    @GetMapping("/get-nail-usage")
+    NailUsage[] getNailUsage(){
+        return itemService.getNailUsage();
+    }
+
+
+    @GetMapping("/get-chain-clasp-type")
+    ChainClaspType[] getChainClaspType(){
+        return itemService.getChainClaspType();
+    }
+
+    @GetMapping("/get-chain-material")
+    ChainMaterial[] getChainMaterial(){
+        return itemService.getChainMaterial();
+    }
+
+    @GetMapping("/get-chain-style")
+    ChainStyle[] getChainStyle(){
+        return itemService.getChainStyle();
+    }
+
+
+
+
+
 
 }
