@@ -9,4 +9,6 @@ import org.springframework.data.repository.query.Param;
 public interface BoxDao extends SuperDao, JpaRepository<BoxEntity,Integer> {
     @Query(value = "select * from `box` where item_id= :id",nativeQuery = true)
     BoxEntity findByItemId(@Param("id") Integer id);
+
+
 }

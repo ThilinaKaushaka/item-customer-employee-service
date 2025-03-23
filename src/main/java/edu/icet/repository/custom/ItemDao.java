@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface ItemDao extends SuperDao, JpaRepository<ItemEntity,Integer> {
     @Query(value ="SELECT id from item ORDER BY id DESC LIMIT 1" ,nativeQuery = true)
     Integer findLastId();
+
 }

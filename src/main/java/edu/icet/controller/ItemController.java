@@ -32,6 +32,8 @@ import edu.icet.util.item.nose_pad.NosePadShape;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/item")
 @CrossOrigin
@@ -53,6 +55,56 @@ public class ItemController {
     @PutMapping("/update")
     void updateItem(@RequestBody ItemDtoSave itemDtoSave){
         itemService.updateItem(itemDtoSave);
+    }
+
+    @GetMapping("/get-box")
+    List<ItemDtoView> getBox(){
+        return itemService.getAllBox();
+    }
+
+    @GetMapping("/get-chain")
+    List<ItemDtoView> getChain(){
+        return itemService.getAllChain();
+    }
+
+    @GetMapping("/get-contact-lens")
+    List<ItemDtoView> getContactLens(){
+        return itemService.getAllContactLens();
+    }
+
+    @GetMapping("/get-contact-lens-liquid")
+    List<ItemDtoView> getContactLensLiquid(){
+        return itemService.getAllContactLensLiquid();
+    }
+
+    @GetMapping("/get-frame")
+    List<ItemDtoView> getFrame(){
+        return itemService.getAllFrame();
+    }
+
+    @GetMapping("/get-lens-cleaner")
+    List<ItemDtoView> getLensCleaner(){
+        return itemService.getAllLensCleaner();
+    }
+
+    @GetMapping("/get-lens-cloth")
+    List<ItemDtoView> getLensCloth(){
+        return itemService.getAllLensCloth();
+    }
+
+    @GetMapping("/get-lens")
+    List<ItemDtoView> getLens(){
+        return itemService.getAllLens();
+    }
+
+    @GetMapping("/get-nail")
+    List<ItemDtoView> getNails(){
+        return itemService.getAllNail();
+    }
+
+    @GetMapping("/get-nose-pad")
+    List<ItemDtoView> getNosePad(){
+        return itemService.getAllNosePad();
     }
 
     @GetMapping("/get-item-category")

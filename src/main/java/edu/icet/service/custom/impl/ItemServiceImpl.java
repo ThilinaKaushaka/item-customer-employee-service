@@ -56,6 +56,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -178,6 +180,116 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void updateItem(ItemDtoSave itemDtoSave) {
         addItem(itemDtoSave);
+    }
+
+    @Override
+    public List<ItemDtoView> getAllBox() {
+        List<ItemDtoView> list=new ArrayList<>();
+        boxDao.findAll().forEach(boxEntity -> {
+            ItemDtoView itemDtoView=getItemDtoView(boxEntity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(boxEntity, BoxDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllChain() {
+        List<ItemDtoView> list=new ArrayList<>();
+        chainDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, ChainDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllContactLens() {
+        List<ItemDtoView> list=new ArrayList<>();
+        contactLensDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, ContactLensDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllContactLensLiquid() {
+        List<ItemDtoView> list=new ArrayList<>();
+        contactLiquidDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, ContactLiquidDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllFrame() {
+        List<ItemDtoView> list=new ArrayList<>();
+        frameDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, FrameDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllLensCleaner() {
+        List<ItemDtoView> list=new ArrayList<>();
+        lensCleanerDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, LensCleanerDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllLensCloth() {
+        List<ItemDtoView> list=new ArrayList<>();
+        lensClothDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, LensClothDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllLens() {
+        List<ItemDtoView> list=new ArrayList<>();
+        lensDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, LensDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllNail() {
+        List<ItemDtoView> list=new ArrayList<>();
+        nailDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, NailDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
+    }
+
+    @Override
+    public List<ItemDtoView> getAllNosePad() {
+        List<ItemDtoView> list=new ArrayList<>();
+        nosePadDao.findAll().forEach(entity -> {
+            ItemDtoView itemDtoView=getItemDtoView(entity.getItemEntity().getId());
+            itemDtoView.setItemObject(mapper.map(entity, NosePadDto.class));
+            list.add(itemDtoView);
+        });
+        return list;
     }
 
     private ItemDtoView searchByNosePadId(Integer nosePadId) {

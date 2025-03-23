@@ -30,11 +30,24 @@ import edu.icet.util.item.nose_pad.NosePadMaterial;
 import edu.icet.util.item.nose_pad.NosePadMountType;
 import edu.icet.util.item.nose_pad.NosePadShape;
 
+import java.util.List;
+
 
 public interface ItemService extends SuperService {
     void addItem(ItemDtoSave itemDtoSave);
     ItemDtoView searchItem(String search);
     void updateItem(ItemDtoSave itemDtoSave);
+
+    List<ItemDtoView> getAllBox();
+    List<ItemDtoView> getAllChain();
+    List<ItemDtoView> getAllContactLens();
+    List<ItemDtoView> getAllContactLensLiquid();
+    List<ItemDtoView> getAllFrame();
+    List<ItemDtoView> getAllLensCleaner();
+    List<ItemDtoView> getAllLensCloth();
+    List<ItemDtoView> getAllLens();
+    List<ItemDtoView> getAllNail();
+    List<ItemDtoView> getAllNosePad();
 
     ItemCategory [] getItemCategory();
 
