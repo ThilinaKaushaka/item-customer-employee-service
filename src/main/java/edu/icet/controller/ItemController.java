@@ -36,7 +36,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/item")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class ItemController {
 
@@ -44,6 +44,7 @@ public class ItemController {
 
     @PostMapping("/add")
     void addItem(@RequestBody ItemDtoSave itemDtoSave){
+        System.out.println(itemDtoSave);            
         itemService.addItem(itemDtoSave);
     }
 
