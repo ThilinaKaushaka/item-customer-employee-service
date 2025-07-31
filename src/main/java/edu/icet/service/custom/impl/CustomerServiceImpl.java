@@ -22,6 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerDao.save(mapper.map(customerDto, CustomerEntity.class));
     }
 
+
     @Override
     public List<CustomerDto> getAll() {
         List<CustomerDto>list=new ArrayList<>();
